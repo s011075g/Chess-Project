@@ -119,6 +119,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Chess\Pieces\Piece.cpp" />
     <ClCompile Include="Chess\Pieces\PiecePawn.cpp" />
+    <ClCompile Include="Chess\Pieces\PieceRook.cpp" />
+    <ClCompile Include="Chess\Pieces\PieceKnight.cpp" />
+    <ClCompile Include="Chess\Pieces\PieceBishop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chess\ChessManager.h" />
@@ -126,6 +129,9 @@
     <ClInclude Include="Chess\Pieces\Piece.h" />
     <ClInclude Include="Chess\Struct.h" />
     <ClInclude Include="Chess\Pieces\PiecePawn.h" />
+    <ClInclude Include="Chess\Pieces\PieceRook.h" />
+    <ClInclude Include="Chess\Pieces\PieceKnight.h" />
+    <ClInclude Include="Chess\Pieces\PieceBishop.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

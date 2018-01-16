@@ -14,6 +14,10 @@ typedef struct ChessIVec2
 		: x(0), y(0)
 	{ }
 
+	ChessIVec2 operator-(const ChessIVec2& r) const
+	{
+		return ChessIVec2(x-r.x, y-r.y);
+	}
 } IVec2;
 
 //Used for Chess Positions

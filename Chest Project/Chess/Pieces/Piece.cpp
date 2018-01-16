@@ -13,7 +13,7 @@ Piece::Piece()
 Piece::~Piece()
 { }
 
-//Return false as they will be overriden by a derived  class
+//Return false as they will be overriden by a derived class
 
 bool Piece::CanMoveTo(const ChessIVec2 & fromPosition, const ChessIVec2 & toPosition)
 {

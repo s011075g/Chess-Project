@@ -7,7 +7,7 @@ PieceBishop::PieceBishop(const ChessTeam team)
 PieceBishop::~PieceBishop()
 { }
 
-bool PieceBishop::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition)
+bool PieceBishop::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const
 {
 	if (fromPosition.x == toPosition.x || fromPosition.y == toPosition.y) 
 		return false;
@@ -65,7 +65,7 @@ bool PieceBishop::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& to
 	return false;
 }
 
-bool PieceBishop::CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition)
+bool PieceBishop::CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const
 {
 	if (fromPosition.x == toPosition.x || fromPosition.y == toPosition.y)
 		return false;

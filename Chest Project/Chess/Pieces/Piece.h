@@ -16,8 +16,8 @@ public:
 	Piece();
 
 	virtual ~Piece();
-	virtual bool CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition);
-	virtual bool CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition);
+	virtual bool CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const;
+	virtual bool CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const;
 
 	ChessTeam GetTeam() const { return _team; }
 	ChessPiece GetPiece() const { return _piece; }

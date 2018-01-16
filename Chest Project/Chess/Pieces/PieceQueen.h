@@ -1,10 +1,10 @@
 #pragma once
 #include "Piece.h"
-class PieceBishop : public Piece
+class PieceQueen : public Piece
 {
 public:
-	PieceBishop(const ChessTeam team);
-	~PieceBishop();
+	PieceQueen(const ChessTeam team);
+	~PieceQueen();
 
 	bool CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const override;
 	bool CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const override;

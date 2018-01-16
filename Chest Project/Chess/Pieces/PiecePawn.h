@@ -6,6 +6,6 @@ public:
 	PiecePawn(const ChessTeam team);
 	~PiecePawn();
 
-	bool CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) override;
-	bool CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) override;
+	bool CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const override;
+	bool CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const override;
 };

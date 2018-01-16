@@ -7,7 +7,7 @@ PieceRook::PieceRook(const ChessTeam team)
 PieceRook::~PieceRook()
 { }
 
-bool PieceRook::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition)
+bool PieceRook::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const 
 {
 	int from = 0, to = 0;
 	if (fromPosition.x == toPosition.x)
@@ -46,7 +46,7 @@ bool PieceRook::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPo
 	return true;
 }
 
-bool PieceRook::CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition)
+bool PieceRook::CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const
 {
 	return (_board[toPosition.x][toPosition.y] != PIECE_KING) && CanMoveTo(fromPosition, toPosition);
 }

@@ -15,12 +15,12 @@ Piece::~Piece()
 
 //Return false as they will be overriden by a derived class
 
-bool Piece::CanMoveTo(const ChessIVec2 & fromPosition, const ChessIVec2 & toPosition)
+bool Piece::CanMoveTo(const ChessIVec2 & fromPosition, const ChessIVec2 & toPosition) const
 {
 	return false;
 }
 
-bool Piece::CanAttack(const ChessIVec2 & fromPosition, const ChessIVec2 & toPosition)
+bool Piece::CanAttack(const ChessIVec2 & fromPosition, const ChessIVec2 & toPosition) const 
 {
 	return false;
 }

@@ -7,7 +7,7 @@ PieceKnight::PieceKnight(const ChessTeam team)
 PieceKnight::~PieceKnight()
 { }
 
-bool PieceKnight::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition)
+bool PieceKnight::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const
 {
 	if (fromPosition.y - 2 == toPosition.y)
 	{
@@ -32,7 +32,7 @@ bool PieceKnight::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& to
 	return false;
 }
 
-bool PieceKnight::CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition)
+bool PieceKnight::CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const
 {
 	return (_board[toPosition.x][toPosition.y] != PIECE_KING) && CanMoveTo(fromPosition, toPosition);
 }

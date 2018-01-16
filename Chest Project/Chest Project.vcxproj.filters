@@ -36,6 +36,12 @@
     <ClCompile Include="Chess\Pieces\PieceBishop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Chess\Pieces\PieceKing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chess\Pieces\PieceQueen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chess\ChessManager.h">
@@ -60,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Chess\Pieces\PieceBishop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chess\Pieces\PieceKing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chess\Pieces\PieceQueen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

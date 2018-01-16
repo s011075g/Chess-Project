@@ -7,7 +7,7 @@ PiecePawn::PiecePawn(const ChessTeam team)
 PiecePawn::~PiecePawn()
 { }
 
-bool PiecePawn::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition)
+bool PiecePawn::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const
 {
 	if (_moveCounter != 0)
 		return (fromPosition.y + (1 * _team) == toPosition.y) && fromPosition.x == toPosition.x;
@@ -15,7 +15,7 @@ bool PiecePawn::CanMoveTo(const ChessIVec2& fromPosition, const ChessIVec2& toPo
 	return (fromPosition.y + (1 * _team) == toPosition.y || (fromPosition.y + (2 * _team) == toPosition.y) && fromPosition.x == toPosition.x && _board[fromPosition.x][fromPosition.y] == PIECE_NONE);
 }
 
-bool PiecePawn::CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition)
+bool PiecePawn::CanAttack(const ChessIVec2& fromPosition, const ChessIVec2& toPosition) const
 {
 	if (_board[toPosition.x][toPosition.y] == PIECE_KING) return false;
 	if (fromPosition.y + _team != toPosition.y) return false;

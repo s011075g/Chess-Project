@@ -18,6 +18,10 @@ typedef struct ChessIVec2
 	{
 		return ChessIVec2(x-r.x, y-r.y);
 	}
+	bool operator==(const ChessIVec2& r) const
+	{
+		return x == r.x && y == r.y;
+	}
 } IVec2;
 
 //Used for Chess Positions

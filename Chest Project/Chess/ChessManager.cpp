@@ -8,8 +8,7 @@
 ChessManager::ChessManager()
 	: _board(std::array<std::array<Piece*, 8>, 8>{{nullptr}}), 
 	_whiteKing(new PieceKing(TEAM_WHITE)), _blackKing(new PieceKing(TEAM_BLACK))
-{
-}
+{ }
 
 ChessManager::~ChessManager()
 {
@@ -31,6 +30,38 @@ std::array<std::array<std::string, 8>, 8> ChessManager::GetBoard() const
 		for(int y = 0; y < 8; y++)
 			result[x][y] = std::string((_board[x][y]->GetTeam() != TEAM_NONE ? _board[x][y]->GetTeam() != TEAM_WHITE ? "W" : "B" : "N" + _board[x][y]->GetPiece()));
 	return result;
+}
+
+void ChessManager::MovePiece(const ChessICVec2& fromPosition, const ChessICVec2& toPosition, const ChessTeam team)
+{
+	MovePiece(ChessIVec2(fromPosition), ChessIVec2(toPosition), team);
+}
+
+void ChessManager::MovePiece(const ChessIVec2& fromPosition, const ChessIVec2& toPosition, const ChessTeam team)
+{
+	if (fromPosition == toPosition) return;
+	Piece* piece = _board[fromPosition.x][fromPosition.y];
+	if (piece && piece->GetTeam() == team)
+	{
+		Piece* toPiece = _board[toPosition.x][toPosition.y];
+		if (toPiece && toPiece->GetTeam() != team)
+		{
+			if (piece->CanAttack(fromPosition, toPosition)) {
+				if (toPiece && (toPiece != _blackKing || toPiece != _whiteKing)) delete toPiece;
+				_board[toPosition.x][toPosition.y] = piece;
+				piece->PieceMoved();
+				_board[fromPosition.x][fromPosition.y] = nullptr;
+			}
+		}
+		else if ((!toPiece || (toPiece && toPiece->GetTeam() == TEAM_NONE)) && piece->CanMoveTo(fromPosition, toPosition))
+		{
+			if (toPiece && (toPiece != _blackKing || toPiece != _whiteKing)) delete toPiece;
+			_board[toPosition.x][toPosition.y] = piece;
+			piece->PieceMoved();
+			_board[fromPosition.x][fromPosition.y] = nullptr;
+		}
+		UpdatePieces();
+	}
 }
 
 void ChessManager::SetUpBoard(std::array<std::array<Piece*, 8>, 8>& board)
@@ -88,4 +119,16 @@ void ChessManager::SetUpBoard(std::array<std::array<Piece*, 8>, 8>& board)
 			board[i][1] = _pieces[i + 24];
 		}
 	}
+}
+
+void ChessManager::UpdatePieces()
+{
+	std::array<std::array<char, 8>, 8> charBoard; 
+	for(int x = 0; x < 8; x++)
+		for(int y = 0; y < 8; y++)
+		{
+			charBoard[x][y] = _board[x][y] ? _board[x][y]->GetPiece() : PIECE_NONE;
+		}
+	Piece::SetBoard(charBoard);
+	PieceKing::SetDetailedBoard(_board);
 }
